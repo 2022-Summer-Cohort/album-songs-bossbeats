@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import java.util.Arrays;
+import java.util.Collection;
 
 @Entity
 public class Album {
@@ -11,23 +13,28 @@ public class Album {
     @Id
     @GeneratedValue
     private long id;
-    private String name;
+    private String albumName;
+    private String artistName;
     private String imgUrl;
-    @OneToMany (mappedBy = albums)
-    private Collection<Songs> songs;
-    private String recordLabel;
-    @OneToMany (mappedBy = albums)
-    private Collection<Comments> comments;
-    @OneToMany (mappedBy = albums)
-    private Collection<Ratings> ratings;
+    @OneToMany (mappedBy = "album")
+    private Collection<Song> songs;
 
-    public Album(String name, String imgUrl, Collection<Songs> songs, String recordLabel, Collection<Comments> comments, Collection<Ratings> ratings) {
-        this.name = name;
+    private String recordLabel;
+    @OneToMany (mappedBy = "album")
+    private Collection<Comment> comments;
+    @OneToMany (mappedBy = "album")
+    private Collection<Rating> ratings;
+
+
+    public Album(String albumName, String artistName, String imgUrl,String recordLabel,Comment[] comments, Rating[] ratings, Song...songs) {
+        this.albumName = albumName;
+        this.artistName = artistName;
         this.imgUrl = imgUrl;
-        this.songs = songs;
         this.recordLabel = recordLabel;
-        this.comments = comments;
-        this.ratings = ratings;
+        this.songs = Arrays.asList(songs);
+        this.ratings = Arrays.asList(ratings);
+        this.comments = Arrays.asList(comments);
+
     }
 
     public Album() {
@@ -37,15 +44,19 @@ public class Album {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getAlbumName() {
+        return albumName;
+    }
+
+    public String getArtistName() {
+        return artistName;
     }
 
     public String getImgUrl() {
         return imgUrl;
     }
 
-    public Collection<Songs> getSongs() {
+    public Collection<Song> getSongs() {
         return songs;
     }
 
@@ -53,11 +64,11 @@ public class Album {
         return recordLabel;
     }
 
-    public Collection<Comments> getComments() {
+    public Collection<Comment> getComments() {
         return comments;
     }
 
-    public Collection<Ratings> getRatings() {
+    public Collection<Rating> getRatings() {
         return ratings;
     }
 }

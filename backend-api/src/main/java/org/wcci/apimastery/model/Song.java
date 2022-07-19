@@ -1,9 +1,9 @@
 package org.wcci.apimastery.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Collection;
 
 @Entity
 public class Song {
@@ -13,17 +13,26 @@ public class Song {
     private String title;
     private String link;
     private String duration;
-    private String comment;
-    private int rating;
-//    @ManyToOne
-//    private Collection<Album> albums;
+    @OneToMany(mappedBy = "song")
+    private Collection<Comment> comments;
+    @OneToMany(mappedBy = "song")
+    private Collection<Rating> ratings;
+    @ManyToOne
+    private Album album;
 
-    public Song(String title, String link, String duration, String comment, int rating) {
+    public Song(String title, Album album, String link, String duration, Comment[] comments, Rating[] ratings) {
         this.title = title;
+        this.album = album;
         this.link = link;
         this.duration = duration;
-        this.comment = comment;
-        this.rating = rating;
+        this.comments = Arrays.asList(comments);
+        this.ratings = Arrays.asList(ratings);
+    }
+    public Song(String title, Album album, String link, String duration){
+        this.title = title;
+        this.album = album;
+        this.link = link;
+        this.duration = duration;
     }
     public Song(){
 
@@ -41,15 +50,19 @@ public class Song {
         return title;
     }
 
+    public Album getAlbum() {
+        return album;
+    }
+
     public String getDuration() {
         return duration;
     }
 
-    public String getComment() {
-        return comment;
+    public Collection<Comment> getComments() {
+        return comments;
     }
 
-    public int getRating() {
-        return rating;
+    public Collection<Rating> getRatings() {
+        return ratings;
     }
 }
