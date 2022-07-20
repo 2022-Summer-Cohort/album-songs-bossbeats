@@ -1,9 +1,6 @@
 package org.wcci.apimastery.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -20,21 +17,28 @@ public class Album {
     private Collection<Song> songs;
 
     private String recordLabel;
-    @OneToMany (mappedBy = "album")
-    private Collection<Comment> comments;
-    @OneToMany (mappedBy = "album")
-    private Collection<Rating> ratings;
+    @ElementCollection
+    private Collection<String> comments;
+    @ElementCollection
+    private Collection<Integer> ratings;
 
 
-    public Album(String albumName, String artistName, String imgUrl,String recordLabel,Comment[] comments, Rating[] ratings, Song...songs) {
+    public Album(String albumName, String artistName, String imgUrl,String recordLabel, Song...songs) {
         this.albumName = albumName;
         this.artistName = artistName;
         this.imgUrl = imgUrl;
         this.recordLabel = recordLabel;
         this.songs = Arrays.asList(songs);
-        this.ratings = Arrays.asList(ratings);
-        this.comments = Arrays.asList(comments);
 
+
+
+    }
+
+    public Album(String albumName, String artistName, String imgUrl, String recordLabel) {
+        this.albumName = albumName;
+        this.artistName = artistName;
+        this.imgUrl = imgUrl;
+        this.recordLabel = recordLabel;
     }
 
     public Album() {
@@ -64,13 +68,17 @@ public class Album {
         return recordLabel;
     }
 
-    public Collection<Comment> getComments() {
+    public Collection<String> getComments() {
         return comments;
     }
-
-    public Collection<Rating> getRatings() {
+    public void addComment(String comment){
+        comments.add(comment);
+    }
+    public Collection<Integer> getRatings() {
         return ratings;
     }
 
-
+    public void addRating(Integer rating){
+        ratings.add(rating);
+    }
 }

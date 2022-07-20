@@ -1,5 +1,6 @@
-### 
+### Get all albums.
 GET http://localhost:8080/api/albums
 
-###
-GET 
+
+### Get one album.
+GET http://localhost:8080/api/albums/1
