@@ -16,11 +16,16 @@ public class Rating {
     @ManyToOne
     private Song song;
 
-    public Rating(int rating) {
+    public Rating(int rating, Album album) {
         this.rating = rating;
         this.album = album;
+    }
+
+    public Rating(int rating, Song song) {
+        this.rating = rating;
         this.song = song;
     }
+
     public Rating(){
 
     }

@@ -18,6 +18,12 @@ public class Comment {
         this.album = album;
         this.comment = comment;
     }
+
+    public Comment(String comment, Song song) {
+        this.comment = comment;
+        this.song = song;
+    }
+
     public Comment(){
 
     }
@@ -29,4 +35,11 @@ public class Comment {
         return comment;
     }
 
+    public Album getAlbum() {
+        return album;
+    }
+
+    public Song getSong() {
+        return song;
+    }
 }

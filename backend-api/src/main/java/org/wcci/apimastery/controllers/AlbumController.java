@@ -57,10 +57,9 @@ public class AlbumController {
     }
     @PostMapping("/api/albums/{id}/addRating")
     public Album addRating(@RequestBody Rating ratingToAdd, @PathVariable Long id){
-        ratingRepo.save(ratingToAdd);
         Album albumToEdit = albumRepo.findById(id).get();
-        albumToEdit.getRatings().add(ratingToAdd);
-        albumRepo.save(albumToEdit);
+        Rating rating1 = new Rating(ratingToAdd.getRating(),albumToEdit);
+        ratingRepo.save(rating1);
         return albumToEdit;
     }
     
