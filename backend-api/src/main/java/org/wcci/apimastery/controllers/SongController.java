@@ -35,20 +35,17 @@ public class SongController {
     @PostMapping("/api/songs/{id}/addComment")
         public Song addCommentToSong(@RequestBody Comment commentToAdd, @PathVariable Long id){
             Song songToEdit = songRepo.findById(id).get();
-            songRepo.save(songToEdit);
-            commentRepo.save(commentToAdd);
-            songToEdit.getComments().add(commentToAdd);
-            songRepo.save(songToEdit);
+            Comment comment1 = new Comment(commentToAdd.getComment(), songToEdit);
+            commentRepo.save(comment1);
             return songToEdit;
         }
 
         @PostMapping("/api/songs/{id}/addRating")
     public Song addRatingToSong(@RequestBody Rating ratingToAdd, @PathVariable Long id){
-            ratingRepo.save(ratingToAdd);
-            Song song1 = songRepo.findById(id).get();
-            song1.getRatings().add(ratingToAdd);
-            songRepo.save(song1);
-            return song1;
+            Song songToEdit = songRepo.findById(id).get();
+            Rating rating1 = new Rating(ratingToAdd.getRating(),songToEdit);
+            ratingRepo.save(rating1);
+            return songToEdit;
         }
 
 }
