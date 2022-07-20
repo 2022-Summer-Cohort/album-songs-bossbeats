@@ -71,4 +71,6 @@ public class Album {
     public Collection<Rating> getRatings() {
         return ratings;
     }
+
+
 }

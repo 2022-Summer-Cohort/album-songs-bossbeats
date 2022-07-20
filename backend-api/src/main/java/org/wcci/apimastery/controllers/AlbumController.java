@@ -43,18 +43,16 @@ public class AlbumController {
     @PostMapping("api/albums/{id}/songs/addSong")
     public Album addSong(@RequestBody Song songToAdd, @PathVariable Long id){
         Album albumToEdit = albumRepo.findById(id).get();
-        Song song1 = new Song(songToAdd.getTitle(),songToAdd.getAlbum(), songToAdd.getLink(), songToAdd.getDuration());
+        Song song1 = new Song(songToAdd.getTitle(),albumToEdit, songToAdd.getLink(), songToAdd.getDuration());
         songRepo.save(song1);
-        albumToEdit.getSongs().add(song1);
         return albumRepo.findById(id).get();
     }
 
     @PostMapping("/api/albums/{id}/addComment")
     public Album addComment(@RequestBody Comment commentToAdd, @PathVariable Long id){
-        commentRepo.save(commentToAdd);
         Album albumToEdit = albumRepo.findById(id).get();
-        albumToEdit.getComments().add(commentToAdd);
-        albumRepo.save(albumToEdit);
+        Comment comment1 = new Comment(commentToAdd.getComment(), albumToEdit);
+        commentRepo.save(comment1);
         return albumToEdit;
     }
     @PostMapping("/api/albums/{id}/addRating")
