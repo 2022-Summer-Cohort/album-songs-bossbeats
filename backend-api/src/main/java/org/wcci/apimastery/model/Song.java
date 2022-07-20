@@ -1,5 +1,7 @@
 package org.wcci.apimastery.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -13,27 +15,23 @@ public class Song {
     private String title;
     private String link;
     private String duration;
-    @OneToMany(mappedBy = "song")
-    private Collection<Comment> comments;
-    @OneToMany(mappedBy = "song")
-    private Collection<Rating> ratings;
+    @ElementCollection
+    private Collection<String> comments;
+    @ElementCollection
+    private Collection<Integer> ratings;
     @ManyToOne
+    @JsonIgnore
     private Album album;
 
-    public Song(String title, Album album, String link, String duration, Comment[] comments, Rating[] ratings) {
+
+    public Song(String title, Album album, String link, String duration) {
         this.title = title;
         this.album = album;
         this.link = link;
         this.duration = duration;
-        this.comments = Arrays.asList(comments);
-        this.ratings = Arrays.asList(ratings);
+
     }
-    public Song(String title, Album album, String link, String duration){
-        this.title = title;
-        this.album = album;
-        this.link = link;
-        this.duration = duration;
-    }
+
     public Song(){
 
     }
@@ -58,11 +56,18 @@ public class Song {
         return duration;
     }
 
-    public Collection<Comment> getComments() {
+    public Collection<String> getComments() {
         return comments;
     }
 
-    public Collection<Rating> getRatings() {
+    public Collection<Integer> getRatings() {
         return ratings;
+    }
+
+    public void addComment(String comment){
+        comments.add(comment);
+    }
+    public void addRating(Integer rating){
+        ratings.add(rating);
     }
 }

@@ -2,35 +2,28 @@ package org.wcci.apimastery.controllers;
 
 import org.springframework.web.bind.annotation.*;
 import org.wcci.apimastery.model.Album;
-import org.wcci.apimastery.model.Comment;
-import org.wcci.apimastery.model.Rating;
 import org.wcci.apimastery.model.Song;
 import org.wcci.apimastery.repositories.AlbumRepository;
-import org.wcci.apimastery.repositories.CommentRepository;
-import org.wcci.apimastery.repositories.RatingRepository;
 import org.wcci.apimastery.repositories.SongRepository;
-
-import java.util.Collection;
-import java.util.Optional;
 
 @RestController
 public class AlbumController {
     private AlbumRepository albumRepo;
     private SongRepository songRepo;
-    private CommentRepository commentRepo;
-    private RatingRepository ratingRepo;
 
-    public AlbumController(AlbumRepository albumRepo, SongRepository songRepo, CommentRepository commentRepo, RatingRepository ratingRepo){
+
+    public AlbumController(AlbumRepository albumRepo, SongRepository songRepo){
         this.albumRepo = albumRepo;
         this.songRepo = songRepo;
-        this.commentRepo = commentRepo;
-        this.ratingRepo = ratingRepo;
+
     }
     @GetMapping("/api/albums")
     public Iterable<Album> retrieveAllAlbums(){
         return albumRepo.findAll();
     }
-    @GetMapping("api/albums/{id}")
+
+
+    @GetMapping("/api/albums/{id}")
     public Album retrieveAlbumById(@PathVariable Long id){
         return albumRepo.findById(id).get();
     }
@@ -49,17 +42,17 @@ public class AlbumController {
     }
 
     @PostMapping("/api/albums/{id}/addComment")
-    public Album addComment(@RequestBody Comment commentToAdd, @PathVariable Long id){
+    public Album addComment(@RequestBody String commentToAdd, @PathVariable Long id){
         Album albumToEdit = albumRepo.findById(id).get();
-        Comment comment1 = new Comment(commentToAdd.getComment(), albumToEdit);
-        commentRepo.save(comment1);
+        albumToEdit.addComment(commentToAdd);
+        albumRepo.save(albumToEdit);
         return albumToEdit;
     }
     @PostMapping("/api/albums/{id}/addRating")
-    public Album addRating(@RequestBody Rating ratingToAdd, @PathVariable Long id){
+    public Album addRating(@RequestBody Integer ratingToAdd, @PathVariable Long id){
         Album albumToEdit = albumRepo.findById(id).get();
-        Rating rating1 = new Rating(ratingToAdd.getRating(),albumToEdit);
-        ratingRepo.save(rating1);
+        albumToEdit.addRating(ratingToAdd);
+        albumRepo.save(albumToEdit);
         return albumToEdit;
     }
     
