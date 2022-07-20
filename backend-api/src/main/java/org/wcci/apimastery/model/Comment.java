@@ -14,7 +14,8 @@ public class Comment {
     @ManyToOne
     private Song song;
 
-    public Comment(String comment) {
+    public Comment(String comment, Album album) {
+        this.album = album;
         this.comment = comment;
     }
     public Comment(){
