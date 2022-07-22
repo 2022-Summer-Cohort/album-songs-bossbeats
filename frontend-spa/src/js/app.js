@@ -44,8 +44,10 @@ function makeHomeViewFromJSON(albums){
     let albumIDEl = album.querySelector(".id-field");
     const albumNameEl = album.querySelector(".album-name")
     albumNameEl.addEventListener("click", () => {
-      albums.forEach(albumJson => {
-        makeAlbumView(albumJson)
+      fetch(`http://localhost:8080/api/albums/${albumIDEl.value}`)
+      .then(res => res.json())
+      .then(albumJson => {
+        makeAlbumView(albumJson);
       })
     })
     const deleteButton = album.querySelector(".delete-button")
@@ -80,13 +82,30 @@ function makeAlbumView(album) {
       container.innerHTML += albumView(album);
       container.innerHTML += footer();
 
-      const songEl = document.querySelectorAll(".song")
-      songEl.forEach(song=>{
-        song.addEventListener("click", ()=>{
-          let songInfo = song.querySelector(".id-field");
-          alert(songInfo.value);
-        })
-      })
+      // let x = container.querySelector(".album-name");
+      // x.innerHTML = album.albumName;
+      // const songIdEl = document.querySelector(".id-field");
+      // const songEl = document.querySelectorAll(".song-list")
+      // songEl.forEach(song=>{
+      //   song.addEventListener("click", ()=>{
+      //     let songInfo = document.querySelector(".id-field");
+      //     alert(songInfo.value);
+      //   })
+
+      // })
+      // const updateTitleButton = song.querySelector(".change-song-title-button");
+      // updateTitleButton.addEventListener("click", ()=>{
+      //   const updateSong = document.querySelector("#change-song-title") 
+      //   fetch(`http://localhost:8080/api/songs/${songIdEl.value}/changeSongName`, {
+      //     method: 'PATCH',
+      //     body: updateSong.value
+      // })
+      // .then(res => res.json())
+      // .then(album => {
+      //   makeAlbumView(album);
+      // })
+
+      // })
       
 }
 
