@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 public class Song {
@@ -69,5 +70,21 @@ public class Song {
     }
     public void addRating(Integer rating){
         ratings.add(rating);
+    }
+    public void changeSongName(String newSongName){
+        title = newSongName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Song song = (Song) o;
+        return Objects.equals(id, song.id) && Objects.equals(title, song.title) && Objects.equals(link, song.link) && Objects.equals(duration, song.duration) && Objects.equals(album, song.album);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, link, duration, album);
     }
 }

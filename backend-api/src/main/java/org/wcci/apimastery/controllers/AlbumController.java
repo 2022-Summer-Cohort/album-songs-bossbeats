@@ -61,4 +61,18 @@ public class AlbumController {
         albumRepo.save(albumToAdd);
         return albumRepo.findAll();
     }
+
+    @DeleteMapping("api/albums/{id}")
+    public Iterable<Album> deleteAlbumById(@PathVariable Long id){
+        albumRepo.deleteById(id);
+        return albumRepo.findAll();
+    }
+
+    @PatchMapping("/api/albums/{id}")
+    public Iterable<Album> changeAlbumName(@PathVariable Long id, @RequestBody String newAlbumName){
+        Album albumToChange = albumRepo.findById(id).get();
+        albumToChange.changeAlbumName(newAlbumName);
+        albumRepo.save(albumToChange);
+        return albumRepo.findAll();
+    }
 }
