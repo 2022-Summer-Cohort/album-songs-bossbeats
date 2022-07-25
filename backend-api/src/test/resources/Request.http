@@ -21,3 +21,8 @@ DELETE http://localhost:8080/api/songs/10
 PATCH http://localhost:8080/api/songs/11/changeSongName
 
 Goodbye
+
+### Add song to album.
+POST http://localhost:8080/api/albums/1/addSong
+
+{"title": "New Song", }

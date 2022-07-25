@@ -20,19 +20,19 @@ public class Populator implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Album album1 = new Album("Dark Side of the Moon", "Pink Floyd", "/images/Dark_Side_of_the_Moon.png", "record Label");
+        Album album1 = new Album("Dark Side of the Moon", "Pink Floyd", "./src/Images/Dark_Side_of_the_Moon.png", "record Label");
         albumRepo.save(album1);
-        Album album2 = new Album("Aashiqui 2", "Arijit Singh", "/images/Aashiqui_2.jpeg", "recordlabel");
+        Album album2 = new Album("Aashiqui 2", "Arijit Singh", "./src/Images/Aashiqui_2.jpeg", "recordlabel");
         albumRepo.save(album2);
-        Album album3 = new Album("Brand New Eyes", "Paramore", "/images/Paramore_-_Brand_New_Eyes.png", "recordlabel");
+        Album album3 = new Album("Brand New Eyes", "Paramore", "./src/Images/Paramore_-_Brand_New_Eyes.png", "recordlabel");
         albumRepo.save(album3);
-        Album album4 = new Album("HumbleQuest", "Maren Morris", "/images/humblequest.jpeg", "recordlabel");
+        Album album4 = new Album("HumbleQuest", "Maren Morris", "./src/Images/humblequest.jpeg", "recordlabel");
         albumRepo.save(album4);
-        Album album5 = new Album("Certified Lover Boy", "Drake", "/images/Drake-certified-Lover-Boy.webp","recordlable");
+        Album album5 = new Album("Certified Lover Boy", "Drake", "./src/Images/Drake-certified-Lover-Boy.webp","recordlable");
         albumRepo.save(album5);
-        Album album6 = new Album("Versus", "Emarosa", "/images/Emarosa_Versus,_2014.jpeg", "recordlabel");
+        Album album6 = new Album("Versus", "Emarosa", "./src/Images/Emarosa_Versus,_2014.jpeg", "recordlabel");
         albumRepo.save(album6);
-        Album album7 = new Album("Wings","BTS", "/images/BTS,_Wings.jpeg","recordlabel");
+        Album album7 = new Album("Wings","BTS", "./src/Images/BTS,_Wings.jpeg","recordlabel");
         albumRepo.save(album7);
 
         Song song1 = new Song("Money",album1, "/", "5:00");

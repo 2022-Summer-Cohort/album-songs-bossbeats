@@ -4,7 +4,7 @@ export default function albumView(album) {
     <div class="main-container">
         <section>
             <div class="album">
-                <img src="${album.imageUrl}" alt="album cover">
+                <img src="${album.imgUrl}" alt="album cover">
                 <h2 class="album-name">${album.albumName}</h2>
                 <p class="artist-name">${album.artistName}</p>
                 <p class="label">${album.recordLabel}</p>
@@ -22,7 +22,10 @@ export default function albumView(album) {
                   })
                   .join("")}
                 </ul>
-                <input type="text" id="add-song" placeholder="Add New Song Here">
+                <input type="text" class="change-album-name" placeholder="New Album Name">
+                <button class = "change-album-name-button">Change Album Name</button>
+                <button class = "delete-button">Delete Album</button>
+                <input type="text" class="add-song" placeholder="Add New Song Here">
                 <button class="add-song-button">Add Song</button>
                 <div class="rating-comment">
                     <p class="rating-average">Average 0 out of 5</p>
@@ -32,7 +35,10 @@ export default function albumView(album) {
                 </div>
             </div>
         </section>
-    </div>
+       
+
+    </div> 
+   
 </main>
 
 

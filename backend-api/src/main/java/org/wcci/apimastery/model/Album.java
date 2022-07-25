@@ -79,7 +79,9 @@ public class Album {
     public void addRating(Integer rating){
         ratings.add(rating);
     }
-
+    public void addSong(Song song){
+        songs.add(song);
+    }
     public void changeAlbumName(String newAlbumName){
         albumName = newAlbumName;
     }

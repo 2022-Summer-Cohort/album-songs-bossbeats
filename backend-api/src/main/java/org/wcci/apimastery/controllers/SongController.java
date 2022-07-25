@@ -52,10 +52,11 @@ public class SongController {
     }    
 
     @PatchMapping("/api/songs/{id}/changeSongName")
-    public Song changeSongName(@PathVariable Long id, @RequestBody String newSongName){
+    public Album changeSongName(@PathVariable Long id, @RequestBody String newSongName){
         Song tempSong = songRepo.findById(id).get();
         tempSong.changeSongName(newSongName);
         songRepo.save(tempSong);
-        return tempSong;
+        Album tempAlbum = tempSong.getAlbum();
+        return tempAlbum;
     }
 }
