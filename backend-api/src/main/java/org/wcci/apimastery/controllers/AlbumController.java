@@ -34,9 +34,11 @@ public class AlbumController {
     }
 
     @PostMapping("api/albums/{id}/addSong")
-    public Album addSong(@RequestBody Song songToAdd, @PathVariable Long id){
+    public Album addSong(@RequestBody String songToAdd, @PathVariable Long id){
+        Song newSong = new Song(songToAdd, albumRepo.findById(id).get());
         Album albumToEdit = albumRepo.findById(id).get();
-        albumToEdit.addSong(songToAdd);
+        albumToEdit.addSong(newSong);
+        albumRepo.save(albumToEdit);
         return albumToEdit;
     }
 

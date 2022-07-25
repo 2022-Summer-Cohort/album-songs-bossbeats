@@ -20,9 +20,23 @@ img{
     color: white;
     text-shadow: 3px 3px 3px rgba(254, 181, 111, .6);
     text-align: center;
-    padding-top: 50px;
-    
+    padding-top: 50px; 
 
+}
+.back-button img{
+    height: 30px;
+    width: 30px;
+    margin-right: 0px;
+}
+.back-button{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    background-color:rgba(250, 249, 250, .2);
+}
+.back-button p{
+    margin-left: 20px;
 }
 .main-container{
    padding-top: 50px;
@@ -45,12 +59,11 @@ img{
     transform: scale(1.2);
     background-color: white;
 }
-.back-button img{
-    height: 50px;
-    width: 50px;
+
+.comment-list{
+    rgba(250, 249, 250, .2)
 }
-.back-button{
-    text-decoration: none;
-    display: flex;
-    align-items: center;
+.comment{
+    padding: 10px;
+    border-bottom: 1px rgba(158, 216, 238, .65) dashed;
 }
