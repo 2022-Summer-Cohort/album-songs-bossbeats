@@ -1,0 +1,56 @@
+*{
+    margin: 0 auto;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+}
+img{
+    height: 300px;
+    width: 300px;
+}
+.container{
+    background-image: url(/frontend-spa/src/Images/annie-spratt-jN-5qlfUcbw-unsplash.jpg);
+}
+.header-container{
+    background-color:rgba(250, 249, 250, .2);
+    height: 200px;
+    max-width: 80%;
+    font-family: 'Righteous';
+    font-size: 3em;
+    color: white;
+    text-shadow: 3px 3px 3px rgba(254, 181, 111, .6);
+    text-align: center;
+    padding-top: 50px;
+    
+
+}
+.main-container{
+   padding-top: 50px;
+   display: flex; 
+   max-width: 80%;
+   background-color:rgba(250, 249, 250, .2);
+   backface-visibility: ;
+   min-height: 100vh;
+}
+.main-container section{
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 50px;
+    column-gap: 50px;
+    text-align: center;
+}
+
+
+.main-container section .album-home:hover {
+    transform: scale(1.2);
+    background-color: white;
+}
+.back-button img{
+    height: 50px;
+    width: 50px;
+}
+.back-button{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}

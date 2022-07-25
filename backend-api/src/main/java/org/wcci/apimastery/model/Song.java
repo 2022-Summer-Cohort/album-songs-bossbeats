@@ -32,6 +32,10 @@ public class Song {
         this.duration = duration;
 
     }
+    public Song(String title, Album album){
+        this.title = title;
+        this.album = album;
+    }
 
     public Song(){
 

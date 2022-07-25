@@ -2,7 +2,8 @@ export default function footer(){
     return `
     <footer>
         <div class="footer-container">
-            <a href="/">Back to Home</a>
+            <p>WCCI 2022</p>
+            
         </div>
     </footer>
     `
