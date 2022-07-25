@@ -23,6 +23,13 @@ img{
     padding-top: 50px; 
 
 }
+.delete-song-button{
+    height: 15px;
+    width: 15px;
+}
+.delete-song-button:hover{
+    transform: scale(1.1);
+}
 .back-button img{
     height: 30px;
     width: 30px;

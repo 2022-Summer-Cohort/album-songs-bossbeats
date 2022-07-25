@@ -18,7 +18,8 @@ export default function albumView(album) {
                             
                             <input type="text" id="change-song-title" placeholder="New Song Title">
                             <button class="change-song-title-button">Change Song Title</button>
-                            <button class="delete-song-button">Delete Song</button>
+                            <img class="delete-song-button" src="/frontend-spa/src/Images/delete-song-interface-symbol-svgrepo-com.svg" alt="delete song">
+    
                         </div>
                         `;
                   })
