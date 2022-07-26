@@ -10,15 +10,21 @@ export default function albumView(album) {
               <p class="label">${album.recordLabel}</p>
               <input class="id" type="hidden" value="${album.id}">
               <div class="edit-album">
+              <div class="change-btn">
                   <input type="text" class="change-album-name" placeholder="New Album Name">
+                  <br>
                   <button class = "change-album-name-button">Change Album Name</button>
+                  <br>
                   <button class = "delete-button">Delete Album</button>
-                  <input type="text" class="add-song" placeholder="Add New Song Here">
-                  <button class="add-song-button">Add Song</button>
+                  </div>
+                  </div>
+          </div>
                   </div>
           </div>
           <div class="songs">
               <ul>
+              <h2>Songs</h2>
+              <div class="song-lists">
               ${album.songs
                 .map((song) => {
                   return `
@@ -80,6 +86,7 @@ export default function albumView(album) {
                       `;
                 })
                 .join("")}
+                </div>
               </ul>
           </div>
               <br>
