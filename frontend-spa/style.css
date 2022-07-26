@@ -23,17 +23,30 @@ img{
     padding-top: 50px; 
 
 }
+
 .delete-song-button{
     height: 15px;
     width: 15px;
 }
 .delete-song-button:hover{
     transform: scale(1.1);
+    fill:rgba(254, 181, 111, .6)
 }
-.back-button img{
+.back-button svg{
     height: 30px;
     width: 30px;
     margin-right: 0px;
+    cursor: pointer;
+}
+.back-button svg:hover{
+    height: 30px;
+    width: 30px;
+    margin-right: 0px;
+    fill:rgba(254, 181, 111, .6)
+}
+.back-button p:hover{
+    margin-left: 20px;
+    color:rgba(254, 181, 111, .6)
 }
 .back-button{
     width: 80%;
@@ -41,10 +54,16 @@ img{
     align-items: center;
     justify-items: center;
     background-color:rgba(250, 249, 250, .2);
+    padding-bottom: 50px;
+    
 }
+
 .back-button p{
     margin-left: 20px;
+    cursor: pointer;
 }
+
+
 .main-container{
    padding-top: 50px;
    display: flex; 
@@ -78,6 +97,7 @@ img{
 }
 
 .rating-comment{
+    width: 80%;
     background-color:rgba(250, 249, 250, .2);
 }
 
@@ -89,6 +109,8 @@ img{
 .main-container-album{
     display: flex;
     background-color:rgba(250, 249, 250, .2);
+    width: 80%;
+    min-height: 100vh;
     }
     
 .album{
@@ -98,4 +120,39 @@ img{
 .album-img{
         display: flex;
         flex-direction: column;
+}
+.star-rating{
+    display: flex;
+    align-items: center;
+    width: 160px;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    position: relative;
+}
+.star-rating input{
+    display: none;
+}
+.star-rating > label{
+    width: 30px;
+    height: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+    color: orange;
+    transition: 0.2s ease;
+}
+.star-rating label:hover{
+    color: #ff69b4;
+    transition: 0.2s ease;
+}
+.star-rating label:active::before{
+    transform: scale(1.1);
+}
+.star-rating label::before { 
+    content: '\2606';
+    position: absolute;
+    /* top: 0px; */
+    line-height: 26px;
+}
+.star-rating input:checked ~ label:before{
+    content: '\2605';
 }
