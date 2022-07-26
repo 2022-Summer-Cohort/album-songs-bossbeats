@@ -20,7 +20,7 @@ export default function albumView(album) {
                   </div>
           </div>
                   </div>
-          </div>
+          
           <div class="songs">
               <ul>
               <h2>Songs</h2>
@@ -88,6 +88,7 @@ export default function albumView(album) {
                 .join("")}
                 </div>
               </ul>
+            </div>
           </div>
               <br>
               <br>
