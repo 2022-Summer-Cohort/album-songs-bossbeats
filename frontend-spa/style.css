@@ -50,9 +50,11 @@ img{
    display: flex; 
    max-width: 80%;
    background-color:rgba(250, 249, 250, .2);
-   backface-visibility: ;
    min-height: 100vh;
+
 }
+
+
 .main-container section{
     display: flex;
     flex-wrap: wrap;
@@ -73,4 +75,27 @@ img{
 .comment{
     padding: 10px;
     border-bottom: 1px rgba(158, 216, 238, .65) dashed;
+}
+
+.rating-comment{
+    background-color:rgba(250, 249, 250, .2);
+}
+
+.album-img img{
+    border: 2px solid black;
+    margin-left: 20%;
+}
+
+.main-container-album{
+    display: flex;
+    background-color:rgba(250, 249, 250, .2);
+    }
+    
+.album{
+        display: flex;
+    
+}
+.album-img{
+        display: flex;
+        flex-direction: column;
 }
