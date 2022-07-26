@@ -113,10 +113,6 @@ img{
     min-height: 100vh;
     }
     
-.album{
-        display: flex;
-    
-}
 .album-img{
         display: flex;
         flex-direction: column;
@@ -155,4 +151,169 @@ img{
 }
 .star-rating input:checked ~ label:before{
     content: '\2605';
+}
+.comment{
+    padding: 10px;
+    border-bottom: 1px rgba(158, 216, 238, .65) dashed;
+}
+
+.rating-comment{
+    background-color:rgba(250, 249, 250, .2);
+}
+
+.album-img img{
+    border: 2px solid black;
+}
+
+.main-container-album{
+    background-color:rgba(250, 249, 250, .2);
+    width: 80%;
+    }
+    
+.album{
+        display: flex;
+        width: 80vw;
+        justify-content: space-between;
+}
+
+
+
+.album-name{
+    font-size: 2.6rem;
+    text-decoration: underline;
+}
+.artist-name{
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.label {
+    font-size: 1.8rem;
+}
+
+.edit-album{
+padding-bottom: 3%;
+}
+
+.delete-button{
+    margin-top: 2%;
+    border-radius: 5%;
+    background-color: rgb(4, 153, 252);
+    font-weight: bold;
+
+}
+
+.delete-button:hover{
+    background-color: blue;
+}
+
+.change-album-name{
+margin-top: 2%;
+}
+
+.change-album-name-button{
+    margin-top: 2%;
+    border-radius: 5%;
+    background-color: rgb(4, 153, 252);
+    font-weight: bold;
+}
+.change-album-name-button:hover{
+    background-color: blue;
+}
+
+.songs {
+    width: 30%;
+    padding: 1% 2%;
+    height: auto;
+
+
+}
+
+.songs h2{
+    font-size: 2rem;
+}
+
+.song-lists{
+   margin-left: 5%;
+   margin-top: 2%;
+}
+
+.song-list{
+    border-bottom: 2px solid black;
+}
+
+.song-list a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 4%;
+}
+.delete-song-button{
+    height: 18px;
+    width: 18px;
+    padding: 2px;
+    background-color: rgb(4, 153, 252);
+}
+.delete-song-button:hover{
+    transform: scale(1.1);
+    background-color: blue;
+}
+
+.add-song-container{
+    margin: 4%;
+}
+
+.add-song-container button{
+    margin: 8%;
+    padding: 2%;
+    border-radius: 5%;
+    background-color: rgb(4, 153, 252);
+    font-weight: bold;
+}
+.add-song-container button:hover{
+    background-color: blue;
+}
+.comment{
+    padding: 10px;
+    border-bottom: 2px rgba(0, 2, 3, 0.65) dashed;
+    margin: 10px;
+}
+
+.rating-comment{
+    background-color:rgba(250, 249, 250, .2);
+    text-align: center;
+    border: 2px solid black;
+    width: 30%;
+    margin: 2%;
+    margin-left: 36%;
+    padding: 1%;
+}
+
+.comment-list{
+    width: 70%;
+    background-color:rgba(250, 249, 250, .4);
+}
+
+.rating-average{
+    margin: 1%;
+    font-weight: bold;
+}
+
+.submit-comment{
+    margin: 8%;
+    padding: 2%;
+    border-radius: 5%;
+    background-color: rgb(4, 153, 252);
+    font-weight: bold;
+}
+.submit-comment:hover{
+    background-color: blue;
+}
+
+footer{
+    text-align: center;
+    font-size: 1.5rem;
+    padding-bottom: 1%;
+    font-weight: 600;
 }
