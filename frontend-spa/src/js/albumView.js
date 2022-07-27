@@ -107,18 +107,19 @@ export default function albumView(album) {
                     .join("")}
                      
                   </ul> 
-                  <div class="star-rating">
-                  <i class="rating__star far fa-star"></i>
-                  <i class="rating__star far fa-star"></i>
-                  <i class="rating__star far fa-star"></i>
-                  <i class="rating__star far fa-star"></i>
-                  <i class="rating__star far fa-star"></i>
-                  </div>
-                    
-                  <p class="rating-average">Average 0 out of 5</p>
+                  <div class="rating">
+                  <p class="rating-average">Average ⭐  0 out of 5</p>
+                  <br>
                   <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Add comment here."></textarea>
                   <br>
+                  <label for="int-rating">⭐</label>
+                  <input type="number" min="1" max="5" id="int-rating" name="rating" value="1"
+                  <br>
+                  <br>
                   <button class="submit-comment">Submit</button>
+                  </div>
+                    
+                  
               </div>
              
      

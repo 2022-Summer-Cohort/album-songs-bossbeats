@@ -172,7 +172,7 @@ img{
     
 .album{
         display: flex;
-        width: 80vw;
+        width: 80%;
         justify-content: space-between;
 }
 
@@ -185,6 +185,7 @@ img{
 .artist-name{
     font-weight: 600;
     font-size: 2rem;
+
 }
 
 .label {
@@ -198,13 +199,12 @@ padding-bottom: 3%;
 .delete-button{
     margin-top: 2%;
     border-radius: 5%;
-    background-color: rgb(4, 153, 252);
+    background-color: rgb(4, 153, 252,.4);
     font-weight: bold;
-
 }
 
 .delete-button:hover{
-    background-color: blue;
+    background-color: white;
 }
 
 .change-album-name{
@@ -214,11 +214,11 @@ margin-top: 2%;
 .change-album-name-button{
     margin-top: 2%;
     border-radius: 5%;
-    background-color: rgb(4, 153, 252);
+    background-color: rgb(4, 153, 252, .4);
     font-weight: bold;
 }
 .change-album-name-button:hover{
-    background-color: blue;
+    background-color: white;
 }
 
 .songs {
@@ -250,14 +250,15 @@ margin-top: 2%;
     margin: 4%;
 }
 .delete-song-button{
-    height: 18px;
-    width: 18px;
+    height: 15px;
+    width: 15px;
     padding: 2px;
-    background-color: rgb(4, 153, 252);
+    fill: rgb(4, 153, 252, .4)
+  
 }
 .delete-song-button:hover{
     transform: scale(1.1);
-    background-color: blue;
+    fill:black;
 }
 
 .add-song-container{
@@ -268,16 +269,11 @@ margin-top: 2%;
     margin: 8%;
     padding: 2%;
     border-radius: 5%;
-    background-color: rgb(4, 153, 252);
+    background-color: rgb(4, 153, 252,.4);
     font-weight: bold;
 }
 .add-song-container button:hover{
-    background-color: blue;
-}
-.comment{
-    padding: 10px;
-    border-bottom: 2px rgba(0, 2, 3, 0.65) dashed;
-    margin: 10px;
+    background-color: white;
 }
 
 .rating-comment{
@@ -290,13 +286,19 @@ margin-top: 2%;
     padding: 1%;
 }
 
-.comment-list{
-    width: 70%;
-    background-color:rgba(250, 249, 250, .4);
+.comment{
+    padding: 10px;
+    border-bottom: 2px rgba(0, 2, 3, 0.65) dashed;
+    margin: 10px;
 }
 
+/* .comment-list{
+    width: 70%;
+    background-color:rgba(250, 249, 250, .4);
+} */
+
 .rating-average{
-    margin: 1%;
+   
     font-weight: bold;
 }
 
@@ -304,11 +306,11 @@ margin-top: 2%;
     margin: 8%;
     padding: 2%;
     border-radius: 5%;
-    background-color: rgb(4, 153, 252);
+    background-color: rgb(4, 153, 252, .4);
     font-weight: bold;
 }
 .submit-comment:hover{
-    background-color: blue;
+    background-color: white;
 }
 
 footer{

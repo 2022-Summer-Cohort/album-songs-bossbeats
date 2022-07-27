@@ -171,10 +171,6 @@ function makeAlbumView(album) {
       makeAlbumView(album);
     })
   })
-  const ratingStars = document.getElementsByClassName("rating__star");
-  function executeRating(stars){
-    const starClassActive = "rating__star fas fa-ster"
-  }
 }
 
 makeHomeView();
