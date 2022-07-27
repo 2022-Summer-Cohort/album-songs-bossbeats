@@ -23,6 +23,7 @@ public class Song {
     @ManyToOne
     @JsonIgnore
     private Album album;
+    private double avgRating;
 
 
     public Song(String title, Album album, String link, String duration) {
@@ -30,7 +31,7 @@ public class Song {
         this.album = album;
         this.link = link;
         this.duration = duration;
-
+        this.avgRating = 0.0;
     }
     public Song(String title, Album album){
         this.title = title;
@@ -74,7 +75,18 @@ public class Song {
     }
     public void addRating(Integer rating){
         ratings.add(rating);
+        double sum =0;
+        for(int i : ratings){
+
+            sum+=i;
+        }
+        avgRating = sum/ratings.size();
     }
+
+    public double getAvgRating() {
+        return avgRating;
+    }
+
     public void changeSongName(String newSongName){
         title = newSongName;
     }

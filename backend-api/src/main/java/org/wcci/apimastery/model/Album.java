@@ -22,6 +22,8 @@ public class Album {
     private Collection<String> comments;
     @ElementCollection
     private Collection<Integer> ratings;
+    private double avgRating;
+   
 
 
     public Album(String albumName, String artistName, String imgUrl,String recordLabel, Song...songs) {
@@ -29,6 +31,7 @@ public class Album {
         this.artistName = artistName;
         this.imgUrl = imgUrl;
         this.recordLabel = recordLabel;
+        this.avgRating = 0;
         this.songs = Arrays.asList(songs);
     }
 
@@ -78,14 +81,23 @@ public class Album {
 
     public void addRating(Integer rating){
         ratings.add(rating);
+        double sum =0;
+        for(int i : ratings){
+
+            sum+=i;
+        }
+        avgRating = sum/ratings.size();
     }
+
     public void addSong(Song song){
         songs.add(song);
+    }
+    public double getAvgRating(){
+        return avgRating;
     }
     public void changeAlbumName(String newAlbumName){
         albumName = newAlbumName;
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

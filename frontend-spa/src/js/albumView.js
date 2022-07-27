@@ -23,17 +23,16 @@ export default function albumView(album) {
           
           <div class="songs">
               <ul>
-              <h2>Songs</h2>
+              <h2>Track List</h2>
               <div class="song-lists">
               ${album.songs
                 .map((song) => {
                   return `
-                      <div class = "song-list">
-                          <li class="song"><a href=".">${song.title}</a></li>
+                      <div class = "song">
+                          <li class="song-title"><a href=".">${song.title}</a></li>
                           <input type="hidden" class="id-field" value="${song.id}">
                           
-                          <input type="text" id="change-song-title" placeholder="New Song Title">
-                          <button class="change-song-title-button">Change Song Title</button>
+                        
                         <svg class="delete-song-button" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="489.275px" height="489.275px" viewBox="0 0 489.275 489.275" style="enable-background:new 0 0 489.275 489.275;"
 	 xml:space="preserve">
@@ -105,10 +104,10 @@ export default function albumView(album) {
                       `;
                     })
                     .join("")}
-                     
                   </ul> 
                   <div class="rating">
-                  <p class="rating-average">Average ⭐  0 out of 5</p>
+             
+                  <p class="rating-average">Average ⭐ ${album.avgRating} out of 5</p>
                   <br>
                   <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Add comment here."></textarea>
                   <br>

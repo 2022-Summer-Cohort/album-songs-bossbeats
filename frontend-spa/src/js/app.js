@@ -3,6 +3,7 @@ import footer from "./footer.js";
 import home from "./home.js";
 import albumView from "./albumView.js";
 import backButton from "./backButton.js";
+import songView from "./songview.js";
 
 const container = document.querySelector(".container");
 
@@ -69,6 +70,19 @@ function makeAlbumView(album) {
     makeHomeView();
   })
 
+  const songEl = document.querySelectorAll(".song-lists");
+  songEl.forEach((song)=>{
+  let songIdEl = song.querySelector(".id-field");
+
+  const songTitleEl = document.querySelector(".song-title");
+  songTitleEl.addEventListener("click", ()=>{
+    fetch(`http://localhost:8080/api/songs/${songIdEl.value}`)
+    .then(res => res.json())
+    .then(song => {
+      makeSongView(song);
+    })
+  })
+})
 
  
   const songEls = document.querySelectorAll(".song-list");
@@ -132,33 +146,44 @@ function makeAlbumView(album) {
       })
     })
 
+   
+  
 
-  const newSongTitle = document.querySelector(".add-song");
-  const addSongButton = document.querySelector(".add-song-button");
 
-  addSongButton.addEventListener("click", () => {
-    const newSongJson = {
-      "title": newSongTitle.value,
-    }
-    fetch(`http://localhost:8080/api/albums/${albumIdEl.value}/addSong`, {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: newSongJson.title
-    })
-    .then(res => res.json())
-    .then(album => {
-      makeAlbumView(album);
-    })
-  } )
+  // const newSongTitle = document.querySelector(".add-song");
+  // const addSongButton = document.querySelector(".add-song-button");
+
+  // addSongButton.addEventListener("click", () => {
+  //   const newSongJson = {
+  //     "title": newSongTitle.value,
+  //   }
+  //   fetch(`http://localhost:8080/api/albums/${albumIdEl.value}/addSong`, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-type': 'application/json'
+  //     },
+  //     body: newSongJson.title
+  //   })
+  //   .then(res => res.json())
+  //   .then(album => {
+  //     makeAlbumView(album);
+  //   })
+  // } )
 
   const addCommentText = document.querySelector("#comment");
+  const addRatingInteger = document.querySelector("#int-rating")
   const submitCommentButton = document.querySelector(".submit-comment");
   submitCommentButton.addEventListener("click", () => {
     const newComment = {
       "comment": addCommentText.value,
+      
     }
+    const newRating = {
+      "rating": addRatingInteger.value,
+    }
+    if(addCommentText.value == ""){
+      alert("Please enter a comment.");
+    }else{
     fetch(`http://localhost:8080/api/albums/${albumIdEl.value}/addComment`, {
       method: 'POST',
       headers: {
@@ -167,10 +192,31 @@ function makeAlbumView(album) {
       body: newComment.comment
     })
     .then(res => res.json())
-    .then(album => {
+    .then(album=>{
       makeAlbumView(album);
     })
+    .then( fetch(`http://localhost:8080/api/albums/${albumIdEl.value}/addRating`, {
+      method: 'POST',
+      headers: {
+          'Content-type' : 'application/json'        
+      },
+      body: newRating.rating
+    })
+    .then(res => res.json())
+    .then(album => {
+      makeAlbumView(album);
+    }))
+  }
   })
+
+  
 }
 
+function makeSongView(song){
+  container.innerHTML = header();
+  container.innerHTML = songView(song);
+  container.innerHTML += footer();
+
+
+}
 makeHomeView();
