@@ -54,7 +54,6 @@ public class AlbumController {
     public Album addRating(@RequestBody Integer ratingToAdd, @PathVariable Long id){
         Album albumToEdit = albumRepo.findById(id).get();
         albumToEdit.addRating(ratingToAdd);
-
         albumRepo.save(albumToEdit);
         return albumToEdit;
     }

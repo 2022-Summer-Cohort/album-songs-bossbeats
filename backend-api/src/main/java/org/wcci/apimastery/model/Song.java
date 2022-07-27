@@ -14,6 +14,7 @@ public class Song {
     @GeneratedValue
     private Long id;
     private String title;
+    private String img;
     private String link;
     private String duration;
     @ElementCollection
@@ -23,12 +24,15 @@ public class Song {
     @ManyToOne
     @JsonIgnore
     private Album album;
+    private String albumName;
     private double avgRating;
 
 
-    public Song(String title, Album album, String link, String duration) {
+    public Song(String title, String img, Album album, String link, String duration) {
         this.title = title;
+        this.img = img;
         this.album = album;
+        this.albumName = album.getAlbumName();
         this.link = link;
         this.duration = duration;
         this.avgRating = 0.0;
@@ -40,6 +44,10 @@ public class Song {
 
     public Song(){
 
+    }
+
+    public String getImg() {
+        return img;
     }
 
     public Long getId() {

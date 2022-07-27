@@ -319,3 +319,33 @@ footer{
     padding-bottom: 1%;
     font-weight: 600;
 }
+.back-to-album-button svg{
+    height: 30px;
+    width: 30px;
+    margin-right: 0px;
+    cursor: pointer;
+}
+.back-to-album-button svg:hover{
+    height: 30px;
+    width: 30px;
+    margin-right: 0px;
+    fill:rgba(254, 181, 111, .6)
+}
+.back-to-album-button p:hover{
+    margin-left: 20px;
+    color:rgba(254, 181, 111, .6)
+}
+.back-to-album-button{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    background-color:rgba(250, 249, 250, .2);
+    padding-bottom: 50px;
+    
+}
+
+.back-to-album-button p{
+    margin-left: 20px;
+    cursor: pointer;
+}

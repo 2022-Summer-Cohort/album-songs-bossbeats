@@ -26,7 +26,10 @@ public class SongController {
 //            return albumRepo.findAll();
 //       }
 
-
+    @GetMapping("/api/songs/{id}")
+    public Song getSongById(@PathVariable Long id){
+        return songRepo.findById(id).get();
+    }
     @PostMapping("/api/songs/{id}/addComment")
         public Song addCommentToSong(@RequestBody String commentToAdd, @PathVariable Long id){
             Song songToEdit = songRepo.findById(id).get();
@@ -52,11 +55,11 @@ public class SongController {
     }    
 
     @PatchMapping("/api/songs/{id}/changeSongName")
-    public Album changeSongName(@PathVariable Long id, @RequestBody String newSongName){
+    public Song changeSongName(@PathVariable Long id, @RequestBody String newSongName){
         Song tempSong = songRepo.findById(id).get();
         tempSong.changeSongName(newSongName);
         songRepo.save(tempSong);
-        Album tempAlbum = tempSong.getAlbum();
-        return tempAlbum;
+
+        return tempSong;
     }
 }

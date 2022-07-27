@@ -2,8 +2,9 @@ import header from "./header.js";
 import footer from "./footer.js";
 import home from "./home.js";
 import albumView from "./albumView.js";
-import backButton from "./backButton.js";
+import backButton from "./backToAllAlbumsButton.js";
 import songView from "./songview.js";
+import backToSingleAlbumButton from "./backToSingleAlbumButton.js";
 
 const container = document.querySelector(".container");
 
@@ -70,12 +71,11 @@ function makeAlbumView(album) {
     makeHomeView();
   })
 
-  const songEl = document.querySelectorAll(".song-lists");
+  const songEl = container.querySelectorAll(".song");
   songEl.forEach((song)=>{
-  let songIdEl = song.querySelector(".id-field");
-
-  const songTitleEl = document.querySelector(".song-title");
-  songTitleEl.addEventListener("click", ()=>{
+    let songIdEl = song.querySelector(".id-field");
+    const songTitleEl = song.querySelector(".song-title");
+    songTitleEl.addEventListener("click", ()=>{
     fetch(`http://localhost:8080/api/songs/${songIdEl.value}`)
     .then(res => res.json())
     .then(song => {
@@ -214,9 +214,79 @@ function makeAlbumView(album) {
 
 function makeSongView(song){
   container.innerHTML = header();
-  container.innerHTML = songView(song);
+  container.innerHTML += backToSingleAlbumButton();
+  container.innerHTML += songView(song);
   container.innerHTML += footer();
+  let songIdEl = document.querySelector(".song-id");
+  
+  const backButtonEl = document.querySelector(".back-to-album-button");
+  backButtonEl.addEventListener("click", ()=>{
+    let albumIdEl = document.querySelector(".album-id");
+    fetch(`http://localhost:8080/api/albums/${albumIdEl.value}`)
+    .then(res => res.json())
+    .then((album)=>{
+      makeAlbumView(album);
+    })
+  })
 
+  const changeSongTitleButton = document.querySelector(".change-song-title-button");
+  changeSongTitleButton.addEventListener("click", ()=>{
+    const updateSong = document.querySelector("#change-song-title");
+    fetch(
+      `http://localhost:8080/api/songs/${songIdEl.value}/changeSongName`,
+      {
+        method: "PATCH",
+        body: updateSong.value,
+      }
+    )
+      .then((res) => res.json())
+      .then((song) => {
+        makeSongView(song);
+      });
+  });
+ 
+  const addCommentText = document.querySelector("#comment");
+  const addRatingInteger = document.querySelector("#int-rating")
+  const submitCommentButton = document.querySelector(".submit-comment");
+  submitCommentButton.addEventListener("click", () => {
+    const newComment = {
+      "comment": addCommentText.value,
+      
+    }
+    const newRating = {
+      "rating": addRatingInteger.value,
+    }
+    if(addCommentText.value == ""){
+      alert("Please enter a comment.");
+    }else{
+    fetch(`http://localhost:8080/api/songs/${songIdEl.value}/addComment`, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: newComment.comment
+    })
+    .then(res => res.json())
+    .then(song=>{
+      makeSongView(song);
+    })
+    .then( fetch(`http://localhost:8080/api/songs/${songIdEl.value}/addRating`, {
+      method: 'POST',
+      headers: {
+          'Content-type' : 'application/json'        
+      },
+      body: newRating.rating
+    })
+    .then(res => res.json())
+    .then(song => {
+      makeSongView(song);
+    }))
+  }
+  })
+     
+
+  
+  
 
 }
 makeHomeView();

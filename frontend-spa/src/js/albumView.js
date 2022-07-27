@@ -29,7 +29,7 @@ export default function albumView(album) {
                 .map((song) => {
                   return `
                       <div class = "song">
-                          <li class="song-title"><a href=".">${song.title}</a></li>
+                          <li class="song-title">${song.title}</li>
                           <input type="hidden" class="id-field" value="${song.id}">
                           
                         
