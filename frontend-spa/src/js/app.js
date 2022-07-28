@@ -87,29 +87,10 @@ function makeAlbumView(album) {
  
   const songEls = document.querySelectorAll(".song-list");
   songEls.forEach((songEl) => {
-    let songInfo = songEl.querySelector(".id-field");
-    songEl.addEventListener("click", () => {
-      const updateTitleButton = songEl.querySelector(
-        ".change-song-title-button"
-      );
-      updateTitleButton.addEventListener("click", () => {
-        const updateSong = songEl.querySelector("#change-song-title");
-        fetch(
-          `http://localhost:8080/api/songs/${songInfo.value}/changeSongName`,
-          {
-            method: "PATCH",
-            body: updateSong.value,
-          }
-        )
-          .then((res) => res.json())
-          .then((album) => {
-            makeAlbumView(album);
-          });
-      });
-    });
-    const deleteButton = songEl.querySelector(".delete-song-button");
+
+    const deleteButton = document.querySelector(".delete-song-button");
     deleteButton.addEventListener("click", ()=> {
-        fetch(`http://localhost:8080/api/songs/${songInfo.value}`, 
+        fetch(`http://localhost:8080/api/songs/${songIdEl.value}`, 
       {
         method: 'DELETE'
       }
@@ -222,7 +203,6 @@ function makeSongView(song, albumId){
   const backButtonEl = document.querySelector(".back-to-album-button");
   backButtonEl.addEventListener("click", ()=>{
     let albumIdEl = document.querySelector(".album-id");
-    console.log(albumIdEl);
     fetch(
       `http://localhost:8080/api/albums/${albumId}`,)
     .then(res => res.json())

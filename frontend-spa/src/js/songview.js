@@ -4,6 +4,7 @@ export default function songView(song, albumId){
     <div class="main-container">
         <section>
             <div class="song-view">
+                <div class="song-info">
                 <a href="${song.link}" target="_blank"><img src="${song.img}" alt="video still"></a>
                 <h2 class="song-name">${song.title}</h2>
                 <input class="song-id" type="hidden" value="${song.id}">
@@ -11,7 +12,8 @@ export default function songView(song, albumId){
                 <p class="duration">${song.duration}</p>
                 <input type="text" id="change-song-title" placeholder="New Song Title">
                 <button class="change-song-title-button">Change Song Title</button>
-                <div class="rating-comment">
+                </div>
+                <div class="rating-comment-song">
                 <input class="id" type="hidden" value="${albumId}">
                  
 

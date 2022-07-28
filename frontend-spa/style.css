@@ -112,9 +112,13 @@ img{
     width: 80%;
     min-height: 100vh;
     }
+    .album-info{
+        margin-left: 20%;
+        margin-top: 2%;
+    }
     
 .album-img{
-        display: flex;
+
         flex-direction: column;
 }
 .star-rating{
@@ -171,7 +175,7 @@ img{
     }
     
 .album{
-        display: flex;
+        /* display: flex; */
         width: 80%;
         justify-content: space-between;
 }
@@ -185,7 +189,7 @@ img{
 .artist-name{
     font-weight: 600;
     font-size: 2rem;
-
+    margin-top: 1%;
 }
 
 .label {
@@ -225,7 +229,7 @@ margin-top: 2%;
     width: 30%;
     padding: 1% 2%;
     height: auto;
-
+    margin-right: 12%;
 
 }
 
@@ -253,7 +257,7 @@ margin-top: 2%;
     height: 15px;
     width: 15px;
     padding: 2px;
-    fill: rgb(4, 153, 252, .4)
+    fill: rgb(26, 110, 167)
   
 }
 .delete-song-button:hover{
@@ -348,4 +352,40 @@ footer{
 .back-to-album-button p{
     margin-left: 20px;
     cursor: pointer;
+}
+.song{
+    font-size: 1.4rem;
+    border-bottom: 1px solid black;
+    margin-bottom: 5%;
+}
+.song:hover{
+    cursor: pointer;
+}
+
+.song-view img{
+    width: 550px;
+    height: 300px;
+}
+
+.song-view{
+    display: flex;
+    flex-direction: column;
+}
+
+.rating-comment-song{
+    border: 2px solid black;
+    padding: 3%;
+    margin: 2%;
+}
+
+.change-song-title-button{
+    margin: 2%;
+    padding: 1%;
+    border-radius: 5%;
+    background-color: rgb(4, 153, 252, .4);
+    font-weight: bold;
+}
+
+.change-song-title-button:hover{
+    background-color: white;
 }

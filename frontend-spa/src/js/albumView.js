@@ -5,10 +5,12 @@ export default function albumView(album) {
           <div class="album">
               <div class="album-img">
               <img src="${album.imgUrl}" alt="album cover">
+              <div class="album-info">
               <h2 class="album-name">${album.albumName}</h2>
               <p class="artist-name">${album.artistName}</p>
               <p class="label">${album.recordLabel}</p>
               <input class="id" type="hidden" value="${album.id}">
+              
               <div class="edit-album">
               <div class="change-btn">
                   <input type="text" class="change-album-name" placeholder="New Album Name">
@@ -20,7 +22,7 @@ export default function albumView(album) {
                   </div>
           </div>
                   </div>
-          
+          </div>
           <div class="songs">
               <ul>
               <h2>Track List</h2>
@@ -29,10 +31,11 @@ export default function albumView(album) {
                 .map((song) => {
                   return `
                       <div class = "song">
-                          <li class="song-title">${song.title}</li>
-                          <input type="hidden" class="id-field" value="${song.id}">
+
+                       
                           
-                        
+                          <li class="song-title"> ${song.title}</li>
+                          <input type="hidden" class="id-field" value="${song.id}">
                         <svg class="delete-song-button" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="489.275px" height="489.275px" viewBox="0 0 489.275 489.275" style="enable-background:new 0 0 489.275 489.275;"
 	 xml:space="preserve">
@@ -81,6 +84,7 @@ export default function albumView(album) {
 <g>
 </g>
 </svg>
+
                       </div>
                       `;
                 })
@@ -91,7 +95,7 @@ export default function albumView(album) {
               <br>
               <div class="add-song-container">
               <button class="add-song-button">Add song</button>
-              <input type="text" class="add-song">
+              <input type="text" class="add-song" placeholder="New Song">
               </div>
             </div>
           </div>
