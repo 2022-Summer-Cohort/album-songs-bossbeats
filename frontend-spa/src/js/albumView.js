@@ -87,10 +87,15 @@ export default function albumView(album) {
                 .join("")}
                 </div>
               </ul>
+              <br>
+              <br>
+              <div class="add-song-container">
+              <button class="add-song-button">Add song</button>
+              <input type="text" class="add-song">
+              </div>
             </div>
           </div>
-              <br>
-              <br>
+
 </div>
   </div> 
               <div class="rating-comment">

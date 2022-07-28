@@ -79,7 +79,7 @@ function makeAlbumView(album) {
     fetch(`http://localhost:8080/api/songs/${songIdEl.value}`)
     .then(res => res.json())
     .then(song => {
-      makeSongView(song);
+      makeSongView(song, album.id);
     })
   })
 })
@@ -150,25 +150,25 @@ function makeAlbumView(album) {
   
 
 
-  // const newSongTitle = document.querySelector(".add-song");
-  // const addSongButton = document.querySelector(".add-song-button");
+  const newSongTitle = document.querySelector(".add-song");
+  const addSongButton = document.querySelector(".add-song-button");
 
-  // addSongButton.addEventListener("click", () => {
-  //   const newSongJson = {
-  //     "title": newSongTitle.value,
-  //   }
-  //   fetch(`http://localhost:8080/api/albums/${albumIdEl.value}/addSong`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-type': 'application/json'
-  //     },
-  //     body: newSongJson.title
-  //   })
-  //   .then(res => res.json())
-  //   .then(album => {
-  //     makeAlbumView(album);
-  //   })
-  // } )
+  addSongButton.addEventListener("click", () => {
+    const newSongJson = {
+      "title": newSongTitle.value,
+    }
+    fetch(`http://localhost:8080/api/albums/${albumIdEl.value}/addSong`, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: newSongJson.title
+    })
+    .then(res => res.json())
+    .then(album => {
+      makeAlbumView(album);
+    })
+  } )
 
   const addCommentText = document.querySelector("#comment");
   const addRatingInteger = document.querySelector("#int-rating")
@@ -212,17 +212,19 @@ function makeAlbumView(album) {
   
 }
 
-function makeSongView(song){
+function makeSongView(song, albumId){
   container.innerHTML = header();
   container.innerHTML += backToSingleAlbumButton();
-  container.innerHTML += songView(song);
+  container.innerHTML += songView(song, albumId);
   container.innerHTML += footer();
   let songIdEl = document.querySelector(".song-id");
   
   const backButtonEl = document.querySelector(".back-to-album-button");
   backButtonEl.addEventListener("click", ()=>{
     let albumIdEl = document.querySelector(".album-id");
-    fetch(`http://localhost:8080/api/albums/${albumIdEl.value}`)
+    console.log(albumIdEl);
+    fetch(
+      `http://localhost:8080/api/albums/${albumId}`,)
     .then(res => res.json())
     .then((album)=>{
       makeAlbumView(album);
@@ -241,7 +243,7 @@ function makeSongView(song){
     )
       .then((res) => res.json())
       .then((song) => {
-        makeSongView(song);
+        makeSongView(song, albumId);
       });
   });
  
@@ -268,7 +270,7 @@ function makeSongView(song){
     })
     .then(res => res.json())
     .then(song=>{
-      makeSongView(song);
+      makeSongView(song, albumId);
     })
     .then( fetch(`http://localhost:8080/api/songs/${songIdEl.value}/addRating`, {
       method: 'POST',
@@ -279,7 +281,7 @@ function makeSongView(song){
     })
     .then(res => res.json())
     .then(song => {
-      makeSongView(song);
+      makeSongView(song, albumId);
     }))
   }
   })

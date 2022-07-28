@@ -1,4 +1,4 @@
-export default function songView(song){
+export default function songView(song, albumId){
     return `
     <main>
     <div class="main-container">
@@ -12,6 +12,7 @@ export default function songView(song){
                 <input type="text" id="change-song-title" placeholder="New Song Title">
                 <button class="change-song-title-button">Change Song Title</button>
                 <div class="rating-comment">
+                <input class="id" type="hidden" value="${albumId}">
                  
 
                   <ul class="comment-list">
