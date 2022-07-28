@@ -94,8 +94,9 @@ export default function albumView(album) {
               <br>
               <br>
               <div class="add-song-container">
-              <button class="add-song-button">Add song</button>
+              
               <input type="text" class="add-song" placeholder="New Song">
+              <button class="add-song-button">Add song</button>
               </div>
             </div>
           </div>
@@ -116,7 +117,9 @@ export default function albumView(album) {
                   </ul> 
                   <div class="rating">
              
-                  <p class="rating-average">Average ⭐ ${album.avgRating} out of 5</p>
+                  <p class="rating-average">Average ⭐ ${
+                    album.avgRating
+                  } out of 5</p>
                   <br>
                   <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Add comment here."></textarea>
                   <br>

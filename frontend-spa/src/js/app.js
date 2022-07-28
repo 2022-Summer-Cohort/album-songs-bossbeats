@@ -82,25 +82,21 @@ function makeAlbumView(album) {
       makeSongView(song, album.id);
     })
   })
+  const deleteButton = song.querySelector(".delete-song-button");
+  deleteButton.addEventListener("click", ()=> {
+    fetch(`http://localhost:8080/api/songs/${songIdEl.value}`, 
+  {
+    method: 'DELETE'
+  }
+  )
+  .then(res => res.json())
+  .then(album => {
+    makeAlbumView(album);
+  })
+})
 })
 
- 
-  const songEls = document.querySelectorAll(".song-list");
-  songEls.forEach((songEl) => {
 
-    const deleteButton = document.querySelector(".delete-song-button");
-    deleteButton.addEventListener("click", ()=> {
-        fetch(`http://localhost:8080/api/songs/${songIdEl.value}`, 
-      {
-        method: 'DELETE'
-      }
-      )
-      .then(res => res.json())
-      .then(album => {
-        makeAlbumView(album);
-      })
-    })
-  });
     const albumIdEl = document.querySelector(".id");
     const deleteAlbumButton = document.querySelector(".delete-button")
     deleteAlbumButton.addEventListener("click", ()=>{
