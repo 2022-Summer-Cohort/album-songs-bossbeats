@@ -1,0 +1,405 @@
+*{
+    margin: 0 auto;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+}
+main{
+    width: 80%;
+    min-height: 100vh;
+    background-color: rgba(250, 249, 250, .2);
+    padding-bottom: 50px;
+}
+img{
+    height: 300px;
+    width: 300px;
+}
+.container{
+    background-image: url(/frontend-spa/src/Images/annie-spratt-jN-5qlfUcbw-unsplash.jpg);
+}
+.header-container{
+    background-color:rgba(250, 249, 250, .2);
+    height: 200px;
+    max-width: 80%;
+    font-family: 'Righteous';
+    font-size: 3em;
+    color: white;
+    text-shadow: 3px 3px 3px rgba(254, 181, 111, .6);
+    text-align: center;
+    padding-top: 50px; 
+
+}
+
+.delete-song-button{
+    height: 15px;
+    width: 15px;
+}
+.delete-song-button:hover{
+    transform: scale(1.1);
+    fill:rgba(254, 181, 111, .6)
+}
+.back-button svg{
+    height: 30px;
+    width: 30px;
+    margin-right: 0px;
+    cursor: pointer;
+}
+.back-button svg:hover{
+    height: 30px;
+    width: 30px;
+    margin-right: 0px;
+    fill:rgba(254, 181, 111, .6)
+}
+.back-button p:hover{
+    margin-left: 20px;
+    color:rgba(254, 181, 111, .6)
+}
+.back-button{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    background-color:rgba(250, 249, 250, .2);
+    padding-bottom: 50px;
+    
+}
+
+.back-button p{
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+
+.main-container{
+   padding-top: 50px;
+   display: flex; 
+   max-width: 80%;
+   /* background-color:rgba(250, 249, 250, .2); */
+   min-height: 100vh;
+
+}
+
+
+.main-container section{
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 50px;
+    column-gap: 50px;
+    text-align: center;
+}
+
+
+.main-container section .album-home:hover {
+    transform: scale(1.2);
+    background-color: white;
+}
+
+.comment-list{
+    rgba(250, 249, 250, .2)
+}
+.comment{
+    padding: 10px;
+    border-bottom: 1px rgba(158, 216, 238, .65) dashed;
+}
+
+.rating-comment{
+    width: 80%;
+    background-color:rgba(250, 249, 250, .2);
+}
+
+.album-img img{
+    border: 2px solid black;
+    margin-left: 20%;
+}
+
+.main-container-album{
+    display: flex;
+    /* background-color:rgba(250, 249, 250, .2); */
+    width: 80%;
+    min-height: 100vh;
+    }
+    .album-info{
+        margin-left: 20%;
+        margin-top: 2%;
+    }
+    
+.album-img{
+
+        flex-direction: column;
+}
+.star-rating{
+    display: flex;
+    align-items: center;
+    width: 160px;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    position: relative;
+}
+.star-rating input{
+    display: none;
+}
+.star-rating > label{
+    width: 30px;
+    height: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+    color: orange;
+    transition: 0.2s ease;
+}
+.star-rating label:hover{
+    color: #ff69b4;
+    transition: 0.2s ease;
+}
+.star-rating label:active::before{
+    transform: scale(1.1);
+}
+.star-rating label::before { 
+    content: '\2606';
+    position: absolute;
+    /* top: 0px; */
+    line-height: 26px;
+}
+.star-rating input:checked ~ label:before{
+    content: '\2605';
+}
+.comment{
+    padding: 10px;
+    border-bottom: 1px rgba(158, 216, 238, .65) dashed;
+}
+
+.rating-comment{
+    background-color:rgba(250, 249, 250, .2);
+}
+
+.album-img img{
+    border: 2px solid black;
+}
+
+.album{
+        /* display: flex; */
+        width: 80%;
+        justify-content: space-between;
+}
+
+
+
+.album-name{
+    font-size: 2.6rem;
+    text-decoration: underline;
+}
+.artist-name{
+    font-weight: 600;
+    font-size: 2rem;
+    margin-top: 1%;
+}
+
+.label {
+    font-size: 1.8rem;
+}
+
+.edit-album{
+padding-bottom: 3%;
+}
+
+.delete-button{
+    margin-top: 2%;
+    border-radius: 5%;
+    background-color: rgb(4, 153, 252,.4);
+    font-weight: bold;
+}
+
+.delete-button:hover{
+    background-color: white;
+}
+
+.change-album-name{
+margin-top: 2%;
+}
+
+.change-album-name-button{
+    margin-top: 2%;
+    border-radius: 5%;
+    background-color: rgb(4, 153, 252, .4);
+    font-weight: bold;
+}
+.change-album-name-button:hover{
+    background-color: white;
+}
+
+.songs {
+    width: 30%;
+    padding: 1% 2%;
+    height: auto;
+    margin-right: 12%;
+    
+}
+
+.songs h2{
+    font-size: 2rem;
+}
+
+.song-lists{
+   margin-left: 5%;
+   margin-top: 2%;
+}
+.song{
+    display: flex;
+    flex-direction:row-reverse;
+    align-items: center;
+}
+.song-list{
+    border-bottom: 2px solid black;
+  
+}
+.song-title{
+    margin-left: 0px;
+}
+.song svg{
+    margin: 0px;
+}
+.song-list a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 4%;
+}
+.delete-song-button{
+    height: 15px;
+    width: 15px;
+    padding: 2px;
+    fill: rgb(26, 110, 167)
+  
+}
+.delete-song-button:hover{
+    transform: scale(1.1);
+    fill:black;
+}
+
+.add-song-container{
+    margin: 4%;
+}
+
+.add-song-container button{
+    margin: 8%;
+    margin-left: 0px;
+    padding: 2%;
+    border-radius: 5%;
+    background-color: rgb(4, 153, 252,.4);
+    font-weight: bold;
+    
+}
+.add-song-container button:hover{
+    background-color: white;
+}
+
+.rating-comment{
+    background-color:rgba(250, 249, 250, .2);
+    text-align: center;
+    border: 2px solid black;
+    width: 30%;
+    margin: 2%;
+    margin-left: 36%;
+    padding: 1%;
+}
+
+.comment{
+    padding: 10px;
+    border-bottom: 2px rgba(0, 2, 3, 0.65) dashed;
+    margin: 10px;
+}
+
+/* .comment-list{
+    width: 70%;
+    background-color:rgba(250, 249, 250, .4);
+} */
+
+.rating-average{
+   
+    font-weight: bold;
+}
+
+.submit-comment{
+    margin: 8%;
+    padding: 2%;
+    border-radius: 5%;
+    background-color: rgb(4, 153, 252, .4);
+    font-weight: bold;
+}
+.submit-comment:hover{
+    background-color: white;
+}
+
+footer{
+    text-align: center;
+    font-size: 1.5rem;
+    padding-bottom: 1%;
+    font-weight: 600;
+}
+.back-to-album-button svg{
+    height: 30px;
+    width: 30px;
+    margin-right: 0px;
+    cursor: pointer;
+}
+.back-to-album-button svg:hover{
+    height: 30px;
+    width: 30px;
+    margin-right: 0px;
+    fill:rgba(254, 181, 111, .6)
+}
+.back-to-album-button p:hover{
+    margin-left: 20px;
+    color:rgba(254, 181, 111, .6)
+}
+.back-to-album-button{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    background-color:rgba(250, 249, 250, .2);
+    padding-bottom: 50px;
+    
+}
+
+.back-to-album-button p{
+    margin-left: 20px;
+    cursor: pointer;
+}
+.song{
+    font-size: 1.4rem;
+    border-bottom: 1px solid black;
+    margin-bottom: 5%;
+}
+.song:hover{
+    cursor: pointer;
+}
+
+.song-view img{
+    width: 550px;
+    height: 300px;
+}
+
+.song-view{
+    display: flex;
+    flex-direction: column;
+}
+
+.rating-comment-song{
+    border: 2px solid black;
+    padding: 3%;
+    margin: 2%;
+}
+
+.change-song-title-button{
+    margin: 2%;
+   padding: 2px;
+    border-radius: 5%;
+    background-color: rgb(4, 153, 252, .4);
+ 
+    font-size: 13px;
+}
+
+.change-song-title-button:hover{
+    background-color: white;
+}

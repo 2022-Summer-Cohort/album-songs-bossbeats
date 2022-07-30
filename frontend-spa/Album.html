@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-container">
+                <h1>BossBeats JukeBox</h1>
+            </div>
+        </header>
+        <main>
+            <div class="main-container-album">
+                    <div class="album">
+                        <div class="album-img">
+                        <img src="${album.imgUrl}" alt="album cover">
+                        <h2 class="album-name">${album.albumName}</h2>
+                        <p class="artist-name">${album.artistName}</p>
+                        <p class="label">${album.recordLabel}</p>
+                        <input class="id" type="hidden" value="${album.id}">
+                        <div class="edit-album">
+                            <input type="text" class="change-album-name" placeholder="New Album Name">
+                            <button class = "change-album-name-button">Change Album Name</button>
+                            <button class = "delete-button">Delete Album</button>
+                            <input type="text" class="add-song" placeholder="Add New Song Here">
+                            <button class="add-song-button">Add Song</button>
+                            </div>
+                    </div>
+                    <div class="songs">
+                        <ul>
+                        ${album.songs.map(song => {
+                            return `
+                                <div class = "song-list">
+                                    <li class="song"><a href=".">${song.title}</a></li>
+                                    <input type="hidden" class="id-field" value="${song.id}">
+                                    
+                                    <input type="text" id="change-song-title" placeholder="New Song Title">
+                                    <button class="change-song-title-button">Change Song Title</button>
+                                    <img class="delete-song-button" src="/frontend-spa/src/Images/delete-song-interface-symbol-svgrepo-com.svg" alt="delete song">
+            
+                                </div>
+                                `;
+                          })
+                          .join("")}
+                        </ul>
+                    </div>
+                        <br>
+                        <br>
+
+            </div> 
+                        <div class="rating-comment">
+                           
+        
+                            <ul class="comment-list">
+                            ${album.comments.map(comment=> {
+                                return `
+                                    <li class="comment">${comment}</li>
+                                `
+                            }).join("")
+                        }
+                               
+                            </ul> 
+                            <p class="rating-average">Average 0 out of 5</p>
+                            <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Add comment here."></textarea>
+                            <br>
+                            <button class="submit-comment">Submit</button>
+                        </div>
+                    
+               
+        
+           
+           
+        </main>
+        <footer>
+            <div class="footer-container">
+                <a href="/">Back to Home</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

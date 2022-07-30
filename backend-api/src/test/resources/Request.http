@@ -1,0 +1,28 @@
+### Get all albums.
+GET http://localhost:8080/api/albums
+
+
+### Get one album.
+GET http://localhost:8080/api/albums/1
+
+
+### Delete one album.
+DELETE http://localhost:8080/api/albums/1
+
+### Change album name.
+PATCH http://localhost:8080/api/albums/2
+
+Hello
+
+### Delete song.
+DELETE http://localhost:8080/api/songs/10
+
+### Change song name.
+PATCH http://localhost:8080/api/songs/11/changeSongName
+
+Goodbye
+
+### Add song to album.
+POST http://localhost:8080/api/albums/1/addSong
+
+{"title": "New Song", }
